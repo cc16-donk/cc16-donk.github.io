@@ -1,0 +1,30 @@
+/* 1. 强制全屏背景（即使滚动也不会消失） */
+body {
+    background-image: url('/img/bj.gif') !important; /* 注意如果你用的是jpg，这里要改成.jpg */
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* 2. 暴力强制所有卡片透明（无视主题设定） */
+.recent-post-item, 
+.card-widget,
+#recent-posts > .recent-post-item {
+    background: rgba(255, 255, 255, 0.5) !important; /* 0.5 是透明度，越小越透 */
+    backdrop-filter: blur(10px) !important; /* 毛玻璃效果 */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1) !important;
+}
+
+/* 3. 顶部导航栏变透明毛玻璃 */
+#page-header.nav-fixed #nav {
+    background: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* 4. 暗黑模式下的适配 */
+[data-theme="dark"] body { background-color: #000 !important; }
+[data-theme="dark"] .recent-post-item,
+[data-theme="dark"] .card-widget,
+[data-theme="dark"] #nav {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
